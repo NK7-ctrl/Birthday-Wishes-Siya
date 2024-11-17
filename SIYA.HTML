@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Siya ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        /* मेन स्टाइल्स */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: #000;
+            overflow-x: hidden;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .led-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .led {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: ledGlow 1.5s infinite alternate;
+        }
+
+        @keyframes ledGlow {
+            0% { box-shadow: 0 0 5px #fff, 0 0 10px currentColor, 0 0 20px currentColor; }
+            100% { box-shadow: 0 0 10px #fff, 0 0 20px currentColor, 0 0 30px currentColor; }
+        }
+
+        .main-content {
+            position: relative;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            z-index: 1;
+        }
+
+        .sorry-message {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5em;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            animation: messageGlow 2s infinite alternate;
+        }
+
+        .special-text {
+            font-size: 1.2em;
+            color: #ff69b4;
+            text-shadow: 0 0 10px #ff69b4;
+            margin: 20px 0;
+        }
+
+        .teddy-container {
+            position: fixed;
+            pointer-events: none;
+        }
+
+        .teddy {
+            width: 100px;
+            height: 100px;
+            background: url('https://cdn3d.iconscout.com/3d/premium/thumb/teddy-bear-3d-5349575-4475036.png') no-repeat;
+            background-size: contain;
+            position: absolute;
+            animation: floatTeddy 4s infinite ease-in-out;
+        }
+
+        @keyframes floatTeddy {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .heart-rain {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff0000;
+            animation: float 4s linear infinite;
+            text-shadow: 
+                0 0 10px rgba(255, 0, 0, 0.8),
+                0 0 20px rgba(255, 0, 0, 0.5);
+            filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes messageGlow {
+            0% { box-shadow: 0 0 10px #ff69b4; }
+            100% { box-shadow: 0 0 30px #ff69b4; }
+        }
+
+        .cake-3d {
+            /* पुराने केक स्टाइल्स यहाँ रहेंगे */
+            margin: 50px auto;
+            transform-style: preserve-3d;
+            animation: cakeRotate 20s infinite linear;
+        }
+
+        #musicControl {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .sorry-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sorry-text {
+            position: absolute;
+            color: rgba(255, 105, 180, 0.3);
+            font-size: 12px;
+            white-space: nowrap;
+            animation: floatText 3s linear infinite;
+            text-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+        }
+
+        .main-sorry-text {
+            position: relative;
+            font-size: 5em;
+            color: transparent;
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
+            -webkit-background-clip: text;
+            animation: glowText 2s infinite alternate;
+            z-index: 2;
+            text-align: center;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        @keyframes floatText {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+
+        @keyframes glowText {
+            0% { text-shadow: 0 0 10px #ff69b4; }
+            100% { text-shadow: 0 0 30px #ff1493; }
+        }
+
+        /* 4K टेक्स्ट रेंडरिंग ऑप्टिमाइजेशन */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-smooth: always;
+        }
+
+        .main-sorry-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 6em;
+            background: linear-gradient(45deg, 
+                #ffd700 0%,
+                #ff69b4 25%,
+                #ff1493 50%,
+                #ff69b4 75%,
+                #ffd700 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 
+                0 0 10px rgba(255,255,255,0.2),
+                0 0 20px rgba(255,105,180,0.3),
+                0 0 30px rgba(255,20,147,0.2);
+            font-weight: 700;
+            letter-spacing: 2px;
+            filter: drop-shadow(0 0 15px rgba(255,105,180,0.5));
+            animation: textGlow 3s infinite alternate;
+        }
+
+        .sorry-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 
+                0 0 2px #fff,
+                0 0 5px rgba(255,105,180,0.5);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 5em;
+            background: linear-gradient(45deg, 
+                #ffd700 0%,
+                #ff69b4 50%,
+                #ff1493 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 
+                2px 2px 4px rgba(255,255,255,0.2),
+                -2px -2px 4px rgba(0,0,0,0.2);
+            letter-spacing: 3px;
+            font-weight: 700;
+            filter: drop-shadow(0 0 15px rgba(255,105,180,0.4));
+        }
+
+        .special-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6em;
+            color: #ffffff;
+            text-shadow: 
+                0 0 2px #fff,
+                0 0 8px #ff69b4,
+                0 0 15px #ff69b4;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            line-height: 1.6;
+        }
+
+        .love-quote {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.4em;
+            line-height: 1.6;
+            color: #ffffff;
+            text-shadow: 
+                0 0 3px #fff,
+                0 0 12px rgba(255,105,180,0.6),
+                0 0 24px rgba(255,105,180,0.4);
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .from-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3em;
+            background: linear-gradient(45deg, 
+                #ffd700 0%,
+                #ff69b4 50%,
+                #ff1493 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+            letter-spacing: 2px;
+            filter: drop-shadow(0 0 12px rgba(255,105,180,0.5));
+        }
+
+        @keyframes textGlow {
+            0% {
+                filter: drop-shadow(0 0 10px rgba(255,105,180,0.5));
+                transform: scale(1);
+            }
+            100% {
+                filter: drop-shadow(0 0 20px rgba(255,105,180,0.8));
+                transform: scale(1.02);
+            }
+        }
+
+        /* हाई-डेफिनिशन स्क्रीन्स के लिए */
+        @media screen and (min-width: 2560px) {
+            .main-sorry-text { font-size: 8em; }
+            .sorry-text { font-size: 20px; }
+            h1 { font-size: 6em; }
+            .special-text { font-size: 2em; }
+            .love-quote { font-size: 3em; }
+            .from-text { font-size: 4em; }
+        }
+
+        /* टेक्स्ट शार्पनेस फिक्स */
+        @media screen and (-webkit-min-device-pixel-ratio: 2), 
+               screen and (min-resolution: 192dpi) {
+            * {
+                -webkit-font-smoothing: subpixel-antialiased;
+            }
+        }
+
+        /* कंटेनर बैकग्राउंड को और क्लियर करें */
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* मोबाइल ऑप्टिमाइजेशन */
+        @media screen and (max-width: 768px) {
+            h1 { font-size: 3em; }
+            .love-quote { font-size: 1.8em; }
+            .special-text { font-size: 1.2em; }
+            .highlight-text { font-size: 1.6em; }
+            .from-text { font-size: 2em; }
+            .sorry-message { font-size: 2.2em; }
+        }
+
+        .birthday-header {
+            position: relative;
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 40px;
+            z-index: 10;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .main-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 7em;
+            background: linear-gradient(
+                45deg, 
+                #ffd700 0%,
+                #ff69b4 25%,
+                #ff1493 50%,
+                #ff69b4 75%,
+                #ffd700 100%
+            );
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineText 5s linear infinite;
+            text-shadow: 
+                2px 2px 4px rgba(255,255,255,0.2),
+                -2px -2px 4px rgba(0,0,0,0.2);
+            letter-spacing: 6px;
+            font-weight: 900;
+            transform-style: preserve-3d;
+            position: relative;
+            filter: drop-shadow(0 0 20px rgba(255,105,180,0.5));
+        }
+
+        .main-title::before {
+            content: 'Happy Birthday Siya!';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                transparent 0%,
+                rgba(255,255,255,0.4) 50%,
+                transparent 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: lightPass 3s linear infinite;
+            transform: translateZ(-10px);
+        }
+
+        .main-title::after {
+            content: '✨';
+            position: absolute;
+            font-size: 0.5em;
+            top: -20px;
+            right: -20px;
+            animation: sparkleEmoji 2s infinite alternate;
+        }
+
+        .title-decoration {
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            top: -10%;
+            left: -10%;
+            pointer-events: none;
+            animation: rotateDecoration 20s linear infinite;
+        }
+
+        .title-sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #fff, transparent);
+            border-radius: 50%;
+            animation: titleSparkle 2s ease-in-out infinite;
+            box-shadow: 
+                0 0 10px #fff,
+                0 0 20px #ffd700,
+                0 0 30px #ff69b4;
+        }
+
+        .birthday-emoji {
+            font-size: 4em;
+            position: absolute;
+            animation: floatEmoji 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+        }
+
+        .emoji-left {
+            left: 5%;
+            animation-delay: 0.5s;
+        }
+
+        .emoji-right {
+            right: 5%;
+            animation-delay: 1s;
+        }
+
+        @keyframes shineText {
+            0% { background-position: 0% 50%; filter: hue-rotate(0deg); }
+            100% { background-position: 300% 50%; filter: hue-rotate(360deg); }
+        }
+
+        @keyframes lightPass {
+            0% { transform: translateX(-200%) translateZ(-10px) skewX(-45deg); }
+            100% { transform: translateX(200%) translateZ(-10px) skewX(-45deg); }
+        }
+
+        @keyframes sparkleEmoji {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+            100% { transform: scale(1.3) rotate(20deg); opacity: 1; }
+        }
+
+        @keyframes rotateDecoration {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes titleSparkle {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0;
+            }
+            50% { 
+                transform: scale(2);
+                opacity: 1;
+            }
+        }
+
+        @keyframes floatEmoji {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-30px) rotate(10deg) scale(1.2); }
+        }
+
+        /* 3D hover effect */
+        .birthday-header:hover .main-title {
+            transform: translateZ(50px);
+            transition: transform 0.3s ease;
+        }
+
+        .heart-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .heart-animation {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            animation: heartBeat 2s infinite;
+        }
+
+        .heart-path {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff0000, #ff1a1a);
+            clip-path: path('M100,30 C60,7 0,7 0,76 C0,131 100,190 100,190 C100,190 200,131 200,76 C200,7 140,7 100,30');
+            animation: heartGlow 2s infinite alternate;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Great Vibes', cursive;
+            font-size: 3em;
+            color: white;
+            text-shadow: 0 0 10px rgba(255,255,255,0.8);
+            box-shadow: 
+                0 0 20px rgba(255, 0, 0, 0.5),
+                0 0 40px rgba(255, 0, 0, 0.3),
+                inset 0 0 10px rgba(255, 0, 0, 0.3);
+        }
+
+        .heart-text {
+            opacity: 0;
+            transform: scale(0);
+            animation: textReveal 1s forwards 0.5s;
+        }
+
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.1); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.1); }
+            60% { transform: scale(1); }
+        }
+
+        @keyframes heartGlow {
+            0% { 
+                filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            100% { 
+                filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8));
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes textReveal {
+            0% { 
+                opacity: 0;
+                transform: scale(0) rotate(-45deg);
+            }
+            100% { 
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .connected-names::before {
+            content: '❤️';
+            color: #ff0000;
+            text-shadow: 
+                0 0 10px rgba(255, 0, 0, 0.8),
+                0 0 20px rgba(255, 0, 0, 0.5);
+        }
+
+        .photo-gallery {
+            position: relative;
+            width: 100%;
+            margin: 40px auto;
+            perspective: 1000px;
+        }
+
+        .photo-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .photo-frame {
+            width: 250px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+            margin: 20px;
+            cursor: pointer;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.05) rotateY(10deg);
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 
+                0 0 20px rgba(255,105,180,0.3),
+                0 0 40px rgba(255,105,180,0.2);
+            border: 3px solid rgba(255,255,255,0.2);
+            animation: photoGlow 3s infinite alternate;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(255,105,180,0.2),
+                rgba(255,255,255,0.1)
+            );
+            border-radius: 15px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .photo-frame:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        @keyframes photoGlow {
+            0% {
+                box-shadow: 
+                    0 0 20px rgba(255,105,180,0.3),
+                    0 0 40px rgba(255,105,180,0.2);
+            }
+            100% {
+                box-shadow: 
+                    0 0 30px rgba(255,105,180,0.4),
+                    0 0 60px rgba(255,105,180,0.3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="led-container"></div>
+    <div class="heart-rain"></div>
+    <div class="teddy-container"></div>
+
+    <div class="sorry-container" id="sorryContainer">
+        <div class="main-sorry-text">
+            Happy Birthday Siya!<br>
+            ❤️
+        </div>
+    </div>
+
+    <div class="heart-container">
+        <div class="heart-animation">
+            <div class="heart-path">
+                <span class="heart-text">Siya</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="birthday-header">
+            <span class="birthday-emoji emoji-left">🎉</span>
+            <h1 class="main-title">Happy Birthday Siya!</h1>
+            <span class="birthday-emoji emoji-right">🎂</span>
+            <div class="title-decoration"></div>
+        </div>
+
+        <div class="sorry-message">
+            Siya, I'm sorry for wishing you late...<br>
+            But trust me, no one was more excited and eagerly waiting for your birthday than me ❤️
+        </div>
+
+        <div class="special-text">
+            Every moment I waited to wish you felt like eternity,<br>
+            Because you're that special to me! 🌟
+        </div>
+
+        <!-- 3D केक यहाँ आएगा -->
+        <div class="cake-3d">
+            <!-- केक कंटेंट -->
+        </div>
+
+        <div class="special-text" style="font-size: 1.5em; margin-top: 30px;">
+            With all my love,<br>
+            Naveen ❤️
+        </div>
+    </div>
+
+    <button id="musicControl" onclick="toggleMusic()">🎵</button>
+    <audio id="backgroundMusic" loop>
+        <source src="https://www.youtube.com/watch?v=Umqb9KENgmk" type="audio/mp3">
+    </audio>
+
+    <div class="photo-gallery">
+        <div class="photo-container">
+            <div class="photo-frame">
+                <img src="SIYA IMAGE/1.jpg" alt="Siya" class="photo">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="photo-frame">
+                <img src="SIYA IMAGE/2.jpg" alt="Siya" class="photo">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="photo-frame">
+                <img src="SIYA IMAGE/3.jpg" alt="Siya" class="photo">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="photo-frame">
+                <img src="SIYA IMAGE/4.jpg" alt="Siya" class="photo">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="photo-frame">
+                <img src="SIYA IMAGE/5.jpg" alt="Siya" class="photo">
+                <div class="photo-overlay"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // LED लाइट्स जनरेट करें
+        function createLEDs() {
+            const container = document.querySelector('.led-container');
+            const colors = ['#ff69b4', '#ff1493', '#ff4500', '#ffd700'];
+            
+            for(let i = 0; i < 50; i++) {
+                const led = document.createElement('div');
+                led.className = 'led';
+                led.style.left = `${Math.random() * 100}%`;
+                led.style.top = `${Math.random() * 100}%`;
+                led.style.color = colors[Math.floor(Math.random() * colors.length)];
+                led.style.animationDelay = `${Math.random() * 2}s`;
+                container.appendChild(led);
+            }
+        }
+
+        // हार्ट्स जनरेट करें
+        function createHearts() {
+            const container = document.querySelector('.heart-rain');
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.fontSize = `${20 + Math.random() * 20}px`;
+                heart.style.animationDuration = `${4 + Math.random() * 4}s`;
+                heart.style.filter = `hue-rotate(${Math.random() * 20}deg)`;
+                container.appendChild(heart);
+
+                setTimeout(() => heart.remove(), 4000);
+            }, 300);
+        }
+
+        // टेडी बियर्स जनरेट करें
+        function createTeddies() {
+            const container = document.querySelector('.teddy-container');
+            
+            setInterval(() => {
+                const teddy = document.createElement('div');
+                teddy.className = 'teddy';
+                teddy.style.left = `${Math.random() * 100}%`;
+                teddy.style.top = `${Math.random() * 100}%`;
+                container.appendChild(teddy);
+
+                setTimeout(() => teddy.remove(), 4000);
+            }, 2000);
+        }
+
+        // म्यूजिक कंट्रोल
+        let isPlaying = false;
+        const music = document.getElementById('backgroundMusic');
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                isPlaying = false;
+            } else {
+                music.play();
+                isPlaying = true;
+            }
+        }
+
+        // इनिशियलाइज
+        window.addEventListener('load', () => {
+            createLEDs();
+            createHearts();
+            createTeddies();
+        });
+
+        function createSorryTexts() {
+            const container = document.getElementById('sorryContainer');
+            const text = "I AM SORRY SIYA ";
+            const count = 1000;
+            
+            for(let i = 0; i < count; i++) {
+                const span = document.createElement('span');
+                span.className = 'sorry-text';
+                span.textContent = text;
+                
+                // रैंम पोजीशन
+                span.style.left = `${Math.random() * 100}%`;
+                span.style.animationDelay = `${Math.random() * 10}s`;
+                span.style.opacity = `${0.1 + Math.random() * 0.3}`;
+                
+                container.appendChild(span);
+            }
+        }
+
+        // पेज लोड होने पर सॉरी टेक्स्ट्स बनाएं
+        window.addEventListener('load', () => {
+            createSorryTexts();
+            
+            // 3 सेकंड बाद मेन कंटेंट दिखाएं
+            setTimeout(() => {
+                document.querySelector('.sorry-container').style.display = 'none';
+                document.querySelector('.main-content').style.display = 'block';
+            }, 3000);
+        });
+
+        function createTitleSparkles() {
+            const decoration = document.querySelector('.title-decoration');
+            const sparkleCount = 20;
+
+            for(let i = 0; i < sparkleCount; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'title-sparkle';
+                sparkle.style.left = `${Math.random() * 100}%`;
+                sparkle.style.top = `${Math.random() * 100}%`;
+                sparkle.style.animationDelay = `${Math.random() * 2}s`;
+                decoration.appendChild(sparkle);
+            }
+        }
+
+        window.addEventListener('load', createTitleSparkles);
+
+        function showHeartAnimation() {
+            const heartContainer = document.querySelector('.heart-container');
+            
+            setTimeout(() => {
+                heartContainer.style.display = 'none';
+                document.querySelector('.main-content').style.display = 'block';
+            }, 3000);
+        }
+
+        window.addEventListener('load', () => {
+            showHeartAnimation();
+        });
+    </script>
+</body>
+</html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+    /* OnePlus specific optimizations */
+    @media screen and (max-width: 480px) {
+        /* Adjust font sizes for better readability */
+        body {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Optimize animations for smoother performance */
+        .title-sparkle, .sorry-text {
+            animation-duration: 1.5s;
+            will-change: transform, opacity;
+        }
+
+        /* Adjust container sizes */
+        .sorry-container, .main-content, .heart-container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* Improve touch targets */
+        button, a {
+            min-height: 44px;
+            min-width: 44px;
+            padding: 12px;
+        }
+    }
+
+    /* OnePlus-specific display optimizations */
+    @supports (-webkit-touch-callout: none) {
+        /* Optimize for AMOLED displays */
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Reduce motion for better performance */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+    }
+</style>
+
+
+    /* Additional OnePlus Mobile Optimizations */
+    @media screen and (max-width: 480px) {
+        /* Optimize image loading and rendering */
+        .photo {
+            width: 100%;
+            height: auto;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+
+        /* Improve scrolling performance */
+        .photo-gallery {
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+
+        /* Better text rendering */
+        .special-text, .sorry-message {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Optimize animations for OnePlus AMOLED display */
+        .heart-animation, .led, .teddy {
+            transform: translate3d(0, 0, 0);
+            perspective: 1000px;
+            will-change: transform;
+        }
+
+        /* Improve touch response */
+        #musicControl {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Memory optimization for animations */
+        .heart-rain, .led-container, .teddy-container {
+            contain: layout style paint;
+        }
+
+        /* Better color contrast for AMOLED */
+        .photo-overlay {
+            background: linear-gradient(
+                45deg,
+                rgba(255,105,180,0.3),
+                rgba(255,255,255,0.2)
+            );
+        }
+
+        /* Optimize layout shifts */
+        .main-content, .photo-container {
+            contain: layout;
+            content-visibility: auto;
+        }
+
+        /* Improve battery efficiency */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #000000;
+                color: #ffffff;
+            }
+            
+            .photo-frame {
+                box-shadow: 0 0 15px rgba(255,105,180,0.2);
+            
+            }
+        }
+    }
+    
